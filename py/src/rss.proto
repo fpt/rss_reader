@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package gateway;
+
+message ReplyRequest {
+    string message = 1;
+}
+
+message ReplyResponse {
+    string message = 1;
+}
+
+message InspectRequest {
+    string uri = 1;
+}
+
+message InspectResponse {
+    repeated string rss = 1;
+}
+
+service RssService {
+    rpc Inspect (InspectRequest) returns (InspectResponse) {}
+    rpc Reply (ReplyRequest) returns (ReplyResponse) {}
+}
